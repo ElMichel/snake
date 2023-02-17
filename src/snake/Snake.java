@@ -13,6 +13,10 @@ public class Snake {
         body.add(new Position(5 * Constants.imageSize, y * Constants.imageSize));
     }
 
+    public ArrayList<Position> getBody() {
+        return body;
+    }
+
     public void setDirection(Direction direction) {
         switch (direction) {
             case RIGHT:
@@ -38,4 +42,6 @@ public class Snake {
         }
         this.direction = direction;
     }
+
+
 }
