@@ -44,7 +44,7 @@ public class App extends JPanel implements KeyListener, ActionListener {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         for (int i = 0; i < snake.getBody().size(); i++) {
-            Position position = snake.getBody().get();
+            Position position = snake.getBody().get(i);
             ImageIcon imageIcon = new ImageIcon("assets/square.png");
             g.drawImage(imageIcon.getImage(), position.getX(), position.getY(), this);
         }
