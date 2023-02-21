@@ -21,7 +21,7 @@ public class Snake {
             body.get(i).setY(body.get(i - 1).getY());
         }
 
-        switch(direction) {
+        switch (direction) {
             case RIGHT -> body.get(0).incX(Constants.imageSize);
             case LEFT -> body.get(0).incX(-Constants.imageSize);
             case UP -> body.get(0).incY(-Constants.imageSize);
@@ -29,10 +29,10 @@ public class Snake {
         }
 
     }
+
     public ArrayList<Position> getBody() {
         return body;
     }
-
 
 
     public void setDirection(Direction direction) {

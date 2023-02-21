@@ -26,11 +26,11 @@ public class Position {
         this.y = y;
     }
 
-    public void incX (int x) {
+    public void incX(int x) {
         this.x += x;
     }
 
-    public void incY (int y) {
+    public void incY(int y) {
         this.y += y;
     }
 }
