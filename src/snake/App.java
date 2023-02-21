@@ -14,7 +14,7 @@ public class App extends JPanel implements KeyListener, ActionListener {
     private Snake snake = new Snake();
 
     public App() {
-        timer = new Timer(1200, this);
+        timer = new Timer(120, this);
         timer.start();
 
         setBackground(Color.BLACK);
@@ -45,14 +45,26 @@ public class App extends JPanel implements KeyListener, ActionListener {
         super.paintComponent(g);
         for (int i = 0; i < snake.getBody().size(); i++) {
             Position position = snake.getBody().get(i);
-            ImageIcon imageIcon = new ImageIcon("assets/square.png");
+            ImageIcon imageIcon = null;
+            if(i == 0) {
+                switch (snake.getDirection()) {
+                    case RIGHT -> imageIcon = new ImageIcon("assets/snake_right.png");
+                    case LEFT -> imageIcon = new ImageIcon("assets/snake_left.png");
+                    case UP -> imageIcon = new ImageIcon("assets/snake_up.png");
+                    case DOWN -> imageIcon = new ImageIcon("assets/snake_down.png");
+                }
+            } else {
+                imageIcon = new ImageIcon("assets/square.png");
+            }
             g.drawImage(imageIcon.getImage(), position.getX(), position.getY(), this);
+
         }
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        snake.move();
+        repaint();
     }
 }
