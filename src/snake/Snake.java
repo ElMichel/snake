@@ -15,6 +15,12 @@ public class Snake {
         body.add(new Position(3 * Constants.imageSize, y * Constants.imageSize));
     }
 
+    public void grow () {
+        body.add(new Position(body.get(body.size() - 1).getX(), body.get(body.size() - 1).getY()));
+    }
+
+
+
     public void move() {
         for (int i = body.size() - 1; i > 0; i--) {
             body.get(i).setX(body.get(i - 1).getX());
@@ -27,6 +33,7 @@ public class Snake {
             case UP -> body.get(0).incY(-Constants.imageSize);
             case DOWN -> body.get(0).incY(Constants.imageSize);
         }
+
 
     }
 

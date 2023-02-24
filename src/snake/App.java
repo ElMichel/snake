@@ -11,11 +11,15 @@ public class App extends JPanel implements KeyListener, ActionListener {
 
 
     private final Timer timer;
+    private boolean life = true;
     private Snake snake = new Snake();
+    private Apple apple = new Apple();
 
     public App() {
         timer = new Timer(120, this);
         timer.start();
+        apple.addApple();
+
 
         setBackground(Color.BLACK);
         setPreferredSize(new Dimension(Constants.canvasSize, Constants.canvasSize));
@@ -25,6 +29,8 @@ public class App extends JPanel implements KeyListener, ActionListener {
 
     }
 
+
+
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -32,14 +38,18 @@ public class App extends JPanel implements KeyListener, ActionListener {
 
     @Override
     public void keyPressed(KeyEvent direct) {
-        if (direct.getKeyCode() == KeyEvent.VK_RIGHT){
+        if (direct.getKeyCode() == KeyEvent.VK_RIGHT || direct.getKeyCode() == KeyEvent.VK_D){
             snake.setDirection(Direction.RIGHT);
-        } else if (direct.getKeyCode() == KeyEvent.VK_LEFT){
+        } else if (direct.getKeyCode() == KeyEvent.VK_LEFT || direct.getKeyCode() == KeyEvent.VK_A){
             snake.setDirection(Direction.LEFT);
-        }else if (direct.getKeyCode() == KeyEvent.VK_UP){
+        }else if (direct.getKeyCode() == KeyEvent.VK_UP || direct.getKeyCode() == KeyEvent.VK_W){
             snake.setDirection(Direction.UP);
-        }else if (direct.getKeyCode() == KeyEvent.VK_DOWN){
+        }else if (direct.getKeyCode() == KeyEvent.VK_DOWN || direct.getKeyCode() == KeyEvent.VK_S){
             snake.setDirection(Direction.DOWN);
+        }
+
+        if (direct.getKeyCode() == KeyEvent.VK_N) {
+            snake.grow();
         }
     }
 
@@ -65,9 +75,7 @@ public class App extends JPanel implements KeyListener, ActionListener {
                 imageIcon = new ImageIcon("assets/square.png");
             }
             g.drawImage(imageIcon.getImage(), position.getX(), position.getY(), this);
-
         }
-
     }
 
     @Override
