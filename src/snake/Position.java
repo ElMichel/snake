@@ -33,4 +33,8 @@ public class Position {
     public void incY(int y) {
         this.y += y;
     }
+
+    public boolean equals(Position o) {
+        return this.x == o.x && this.y == o.y;
+    }
 }
