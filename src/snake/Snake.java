@@ -9,7 +9,7 @@ public class Snake {
 
     public Snake() {
         Random random = new Random();
-        int y = random.nextInt(Constants.canvasSize / Constants.imageSize);
+        int y = random.nextInt(Constants.blockCount);
         body.add(new Position(5 * Constants.imageSize, y * Constants.imageSize));
         body.add(new Position(4 * Constants.imageSize, y * Constants.imageSize));
         body.add(new Position(3 * Constants.imageSize, y * Constants.imageSize));

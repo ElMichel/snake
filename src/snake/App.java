@@ -18,7 +18,6 @@ public class App extends JPanel implements KeyListener, ActionListener {
     public App() {
         timer = new Timer(120, this);
         timer.start();
-        apple.addApple();
 
 
         setBackground(Color.BLACK);
