@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Snake {
     private ArrayList<Position> body = new ArrayList<>();
-    private Direction direction = Direction.UP;
+    private Direction direction = Direction.RIGHT;
 
     public Snake() {
         Random random = new Random();
