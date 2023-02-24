@@ -12,13 +12,14 @@ public class Snake {
         int y = random.nextInt(Constants.blockCount);
         body.add(new Position(5 * Constants.imageSize, y * Constants.imageSize));
         body.add(new Position(4 * Constants.imageSize, y * Constants.imageSize));
-        body.add(new Position(3 * Constants.imageSize, y * Constants.imageSize));
+        for(int i = 0; i < 3; i++){
+            grow();
+        }
     }
 
-    public void grow () {
+    public void grow() {
         body.add(new Position(body.get(body.size() - 1).getX(), body.get(body.size() - 1).getY()));
     }
-
 
 
     public void move() {

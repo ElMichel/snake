@@ -19,7 +19,6 @@ public class App extends JPanel implements KeyListener, ActionListener {
         timer = new Timer(120, this);
         timer.start();
 
-
         setBackground(Color.BLACK);
         setPreferredSize(new Dimension(Constants.canvasSize, Constants.canvasSize));
     }
@@ -79,11 +78,11 @@ public class App extends JPanel implements KeyListener, ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent actionEvent) {
         snake.move();
-        if (snake.getBody().get(0).equals(apple.getPosition())) {
-            snake.grow();
+        if(snake.getBody().get(0).equals(apple.getPosition())){
             apple.move();
+            snake.grow();
         }
         repaint();
     }
