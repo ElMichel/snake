@@ -72,4 +72,8 @@ public class Snake {
     public Direction getDirection() {
         return direction;
     }
+
+    public Position getHeadPosition () {
+        return getBody().get(0);
+    }
 }
