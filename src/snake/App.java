@@ -16,7 +16,7 @@ public class App extends JPanel implements KeyListener, ActionListener {
     private Apple apple = new Apple();
 
     public App() {
-        timer = new Timer(120, this);
+        timer = new Timer(520, this);
         timer.start();
 
         setBackground(Color.BLACK);
@@ -27,8 +27,6 @@ public class App extends JPanel implements KeyListener, ActionListener {
 
     }
 
-
-
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -36,13 +34,13 @@ public class App extends JPanel implements KeyListener, ActionListener {
 
     @Override
     public void keyPressed(KeyEvent direct) {
-        if (direct.getKeyCode() == KeyEvent.VK_RIGHT || direct.getKeyCode() == KeyEvent.VK_D){
+        if (direct.getKeyCode() == KeyEvent.VK_RIGHT || direct.getKeyCode() == KeyEvent.VK_D) {
             snake.setDirection(Direction.RIGHT);
-        } else if (direct.getKeyCode() == KeyEvent.VK_LEFT || direct.getKeyCode() == KeyEvent.VK_A){
+        } else if (direct.getKeyCode() == KeyEvent.VK_LEFT || direct.getKeyCode() == KeyEvent.VK_A) {
             snake.setDirection(Direction.LEFT);
-        }else if (direct.getKeyCode() == KeyEvent.VK_UP || direct.getKeyCode() == KeyEvent.VK_W){
+        } else if (direct.getKeyCode() == KeyEvent.VK_UP || direct.getKeyCode() == KeyEvent.VK_W) {
             snake.setDirection(Direction.UP);
-        }else if (direct.getKeyCode() == KeyEvent.VK_DOWN || direct.getKeyCode() == KeyEvent.VK_S){
+        } else if (direct.getKeyCode() == KeyEvent.VK_DOWN || direct.getKeyCode() == KeyEvent.VK_S) {
             snake.setDirection(Direction.DOWN);
         }
 
@@ -80,7 +78,7 @@ public class App extends JPanel implements KeyListener, ActionListener {
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         snake.move();
-        if(snake.getBody().get(0).equals(apple.getPosition())){
+        if (snake.getBody().get(0).equals(apple.getPosition())) {
             apple.move();
             snake.grow();
         }
