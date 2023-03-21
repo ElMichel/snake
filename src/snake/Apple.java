@@ -12,9 +12,9 @@ public class Apple {
     private static final Random random = new Random();
 
     public Apple(String path) {
-       ImageIcon imageIcon = new ImageIcon(path);
-       this.image = imageIcon.getImage();
-       move();
+        ImageIcon imageIcon = new ImageIcon(path);
+        this.image = imageIcon.getImage();
+        move();
     }
 
     public void move() {
