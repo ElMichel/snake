@@ -1,12 +1,17 @@
 package snake;
 
 public class Position {
+
     private int x;
     private int y;
 
     public Position(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public Position copy() {
+        return new Position(x, y);
     }
 
     public int getX() {
@@ -21,7 +26,6 @@ public class Position {
         this.x = x;
     }
 
-
     public void setY(int y) {
         this.y = y;
     }
@@ -34,7 +38,7 @@ public class Position {
         this.y += y;
     }
 
-    public boolean equals(Position o) {
-        return this.x == o.x && this.y == o.y;
+    public boolean equals(Position other) {
+        return this.x == other.x && this.y == other.y;
     }
 }

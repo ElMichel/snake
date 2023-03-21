@@ -5,24 +5,22 @@ import java.awt.*;
 import java.util.Random;
 
 public class Apple {
+
     private Position position;
-    private Image image;
-    private final Random random = new Random();
+    private final Image image;
 
-    public Apple() {
-        ImageIcon imageIcon = new ImageIcon("assets/apple.png");
-        this.image = imageIcon.getImage();
-        setRandomPosition();
-    }
+    private static final Random random = new Random();
 
-    private Position setRandomPosition() {
-        int x = random.nextInt(Constants.blockCount);
-        int y = random.nextInt(Constants.blockCount);
-        return position = new Position(x * Constants.imageSize, y * Constants.imageSize);
+    public Apple(String path) {
+       ImageIcon imageIcon = new ImageIcon(path);
+       this.image = imageIcon.getImage();
+       move();
     }
 
     public void move() {
-        setRandomPosition();
+        int x = random.nextInt(Constants.blockCount);
+        int y = random.nextInt(Constants.blockCount);
+        position = new Position(x * Constants.imageSize, y * Constants.imageSize);
     }
 
     public Position getPosition() {
