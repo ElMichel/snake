@@ -63,6 +63,7 @@ public class App extends JPanel implements KeyListener, ActionListener {
         g.drawImage(apple.getImage(), apple.getPosition().getX(), apple.getPosition().getY(), this);
         g.drawImage(spider.getImage(), spider.getPosition().getX(), spider.getPosition().getY(), this);
 
+        int x = 18;
         for (Snake snake : snakes) {
             for (int i = 0; i < snake.getBody().size(); i++) {
                 Position position = snake.getBody().get(i);
@@ -79,6 +80,9 @@ public class App extends JPanel implements KeyListener, ActionListener {
                 }
                 g.drawImage(imageIcon.getImage(), position.getX(), position.getY(), this);
             }
+            g.setColor(Color.WHITE);
+            g.drawString(snake.getSnakeSize() + "", x, 18);
+            x += 18;
         }
     }
 
