@@ -13,7 +13,8 @@ public class App extends JPanel implements KeyListener, ActionListener {
     private final Timer timer;
 
     private ArrayList<Snake> snakes = new ArrayList<>();
-    private Apple apple = new Apple("assets/apple.png");
+    private HitableObject apple = new HitableObject("assets/apple.png");
+    private HitableObject spider = new HitableObject("assets/spider.png");
 
     public App() {
         snakes.add(new Snake());
@@ -60,6 +61,7 @@ public class App extends JPanel implements KeyListener, ActionListener {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(apple.getImage(), apple.getPosition().getX(), apple.getPosition().getY(), this);
+        g.drawImage(spider.getImage(), spider.getPosition().getX(), spider.getPosition().getY(), this);
 
         for (Snake snake : snakes) {
             for (int i = 0; i < snake.getBody().size(); i++) {
@@ -81,12 +83,17 @@ public class App extends JPanel implements KeyListener, ActionListener {
     }
 
 
-    private void checkApple() {
+    private void checkHitable() {
         for (Snake snake : snakes) {
             if (snake.getHeadPosition().equals(apple.getPosition())) {
                 snake.grow();
                 apple.move();
             }
+            if (snake.getHeadPosition().equals(spider.getPosition())) {
+                snake.shrink();
+                spider.move();
+            }
+
         }
     }
 
@@ -128,7 +135,7 @@ public class App extends JPanel implements KeyListener, ActionListener {
         for (Snake snake : snakes) {
             snake.move();
         }
-        checkApple();
+        checkHitable();
         checkCollision();
         repaint();
     }

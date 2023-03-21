@@ -10,6 +10,11 @@ public class Position {
         this.y = y;
     }
 
+//    public Position(Position old) {
+//        x = old.x;
+//        y = old.y;
+//    }
+
     public Position copy() {
         return new Position(x, y);
     }

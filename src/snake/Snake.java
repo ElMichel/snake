@@ -39,8 +39,13 @@ public class Snake {
     public void grow() {
         Position lastPosition = body.get(body.size() - 1);
         body.add(lastPosition.copy());
+//        body.add(new Position(lastPosition));
     }
-
+    public void shrink() {
+        if (body.size() > 1) {
+            body.remove(body.size() - 1);
+        }
+    }
     public void changeDirection(int key) {
         if (key == up) {
             if (this.direction != Direction.DOWN) {

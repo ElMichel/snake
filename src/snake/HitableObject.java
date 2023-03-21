@@ -4,14 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
-public class Apple {
+public class HitableObject {
 
     private Position position;
     private final Image image;
 
     private static final Random random = new Random();
 
-    public Apple(String path) {
+    public HitableObject(String path) {
         ImageIcon imageIcon = new ImageIcon(path);
         this.image = imageIcon.getImage();
         move();
