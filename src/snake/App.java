@@ -44,6 +44,9 @@ public class App extends JPanel implements KeyListener, ActionListener {
 
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_N -> snake.grow();
+                case KeyEvent.VK_1 -> timer.setDelay(80);
+                case KeyEvent.VK_2 -> timer.setDelay(150);
+                case KeyEvent.VK_3 -> timer.setDelay(300);
             }
 
         }
