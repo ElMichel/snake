@@ -18,7 +18,7 @@ public class App extends JPanel implements KeyListener, ActionListener {
 
     public App() {
         snakes.add(new Snake());
-        snakes.add(new Snake(KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, KeyEvent.VK_R));
+        snakes.add(new Snake(KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, KeyEvent.VK_D));
 
 
         timer = new Timer(80, this);
@@ -46,7 +46,7 @@ public class App extends JPanel implements KeyListener, ActionListener {
                 case KeyEvent.VK_N -> snake.grow();
                 case KeyEvent.VK_1 -> timer.setDelay(80);
                 case KeyEvent.VK_2 -> timer.setDelay(150);
-                case KeyEvent.VK_3 -> timer.setDelay(300);
+                case KeyEvent.VK_3 -> timer.setDelay(300); 
             }
 
         }
